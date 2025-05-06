@@ -1,0 +1,6 @@
+Bill, 22
+Bob, 11
+Jen, 16
+Joe, 10
+Mary, 14
+Sue, 18

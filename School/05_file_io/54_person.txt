@@ -1,0 +1,6 @@
+Bill,22
+Joe,10
+Mary,14
+Sue,18
+Bob,11
+Jen,16
