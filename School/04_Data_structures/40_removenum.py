@@ -1,5 +1,5 @@
 L=[4,6,6,5,1,6,6,7]
-L.reverse
+L.reverse()
 print(L)
 
 for i in range(len(L)-1,-1,-1):
