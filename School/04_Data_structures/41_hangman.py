@@ -60,7 +60,7 @@ while '-' in dashes:
     print('Hurray you found a letter!)
     for x in range(len(secret)):
         if secret[x] == guess:
-        dashes[x] = guess
+            dashes[x] = guess
     else:
         print(f'Sorry, "{guess}" is not in the word')
         picked = picked + guess

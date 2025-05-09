@@ -43,7 +43,7 @@ def selsort(a):
 def selsort(L):
     sl=[]
     while len(L)>0:
-        num-=findmin(L)
+        num=findmin(L)
         #num=min(L)
         L.remove(num)
         sl.append(num)
