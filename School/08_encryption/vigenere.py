@@ -1,27 +1,34 @@
 import sys
-'''
-r = open(sys.argv[3], 'r')
-w = open(sys.argv[4], 'w')
-shift = int(sys.argv[2])
-'''
-r = open(sys.argv[1], 'r')
-w = open(sys.argv[2], 'w')
-print("Welcome to the Vigenere Program!")
-print("This program can encrypt or decrypt a file using a Vigenere cipher.")
-ed = input("Enter 'e' to encrypt or 'd' to decrypt: ")
-key = input("Enter a key(letters only): ")
+import getpass
+if len(sys.argv) != 4:
+    print("Usage: python script.py input.txt output.txt [e|d]")
+    sys.exit(1)
 
-if ed == 'e': # sys.argv[1]
-    a = r.read()
-    
-    w.write(output)
+with open(sys.argv[1], 'r') as r, open(sys.argv[2], 'w') as w:
+    ed = sys.argv[3]
+    key=getpass.getpass("Enter the key:")
 
-elif ed == 'd': #sys.argv[1]
-    a = r.read()
-    
-    w.write(output)
+    def key_shift():
+        while True:
+            for i in key:
+                yield i
+    shift=key_shift()
 
-else:
-    print("Invalid option. Please enter 'e' for encrypt or 'd' for decrypt.")
-r.close()
-w.close()
+    if ed == 'e':
+        a = r.read()
+        out=''
+        for i in a:
+            x = ord(i) + ord(next(shift))
+            out += chr(x)
+        w.write(out)
+    elif ed == 'd':
+        a = r.read()
+        out=''
+        for i in a:
+            x= ord(i) - ord(next(shift))
+            out += chr(x)
+        w.write(out)
+
+    else:
+        print("Invalid mode. Please input 'e' for encrypt or 'd' for decrypt.")
+print("done")
