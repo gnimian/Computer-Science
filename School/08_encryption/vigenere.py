@@ -60,3 +60,4 @@ for let in text:
     sht = sht + chr(num)
 with open(sys.argv[2], 'w') as f:
     f.write(sht)
+'''
