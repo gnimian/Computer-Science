@@ -1,1 +1,29 @@
-Hello World
+One of the best qualities of Python is its consistency. After working with Python for a
+while, you are able to start making informed, correct guesses about features that are
+new to you.
+However, if you learned another object-oriented language before Python, you may
+find it strange to use len(collection) instead of collection.len(). This apparent
+oddity is the tip of an iceberg that, when properly understood, is the key to every‐
+thing we call Pythonic. The iceberg is called the Python Data Model, and it is the API
+that we use to make our own objects play well with the most idiomatic language
+features.
+You can think of the data model as a description of Python as a framework. It formal‐
+izes the interfaces of the building blocks of the language itself, such as sequences,
+functions, iterators, coroutines, classes, context managers, and so on.
+When using a framework, we spend a lot of time coding methods that are called by
+the framework. The same happens when we leverage the Python Data Model to build
+new classes. The Python interpreter invokes special methods to perform basic object
+operations, often triggered by special syntax. The special method names are always
+written with leading and trailing double underscores. For example, the syntax obj[key] is supported by the __getitem__ special method. In order to evaluate
+my_collection[key], the interpreter calls my_collection.__getitem__(key).
+We implement special methods when we want our objects to support and interact
+with fundamental language constructs such as:
+• Collections
+• Attribute access
+• Iteration (including asynchronous iteration using async for)
+• Operator overloading
+• Function and method invocation
+• String representation and formatting
+• Asynchronous programming using await
+• Object creation and destruction
+• Managed contexts using the with or async with statements
