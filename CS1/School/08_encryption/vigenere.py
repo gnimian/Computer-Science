@@ -40,7 +40,7 @@ def foo(p):
     while True:
         yield p[x%len(p)]
         x += 1
-with open(sys.argv[1],r) as fL
+with open(sys.argv[1],r) as f:
     text=f.read()
 
 p=getpass.getpass('Enter password: ')
