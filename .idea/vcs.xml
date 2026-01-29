@@ -2,5 +2,18 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/account" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/app_esp32s3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/app_wasm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/bluetooth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/frontbridge" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/pb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/pluginsystem" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/pluginsystem/wit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/modules/provider" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/plugins/btclassic-spp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AstroBox-NG/src-tauri/plugins/live-activity" vcs="Git" />
   </component>
 </project>
