@@ -1,7 +1,7 @@
 def total(t):
     s=0
     for num in t:
-        s=s+t
+        s=s+num
     return s
 
 L=[]
@@ -17,7 +17,8 @@ print(L)
 for i in range(len(L)):
     for j in range(len(L[i])):
         print(f'{L[i][j]} ', end='')
-    print("\n")
+    #print(f'sum={total(L[i])}')
+    print(f'sum={sum(L[i])}')
 
 #Alternative way to print the same thing
 '''
