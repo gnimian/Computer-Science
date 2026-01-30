@@ -2,8 +2,13 @@ import random
 L=[]
 for i in range(4):
     l=[]
-    for j in range(3):
+    num=0
+    while len(l)<=2:
         a=random.randrange(0,3)
+        if a == 0:
+            num+=1
+        if num>=2:
+            continue
         l.append(a)
     L.append(l)
 
