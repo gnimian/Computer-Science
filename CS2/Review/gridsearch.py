@@ -16,3 +16,4 @@ for i in range(len(L)):
     for j in range(len(L[i])):
         if L[i][j]==0:
             print(j,i)
+print(L)
