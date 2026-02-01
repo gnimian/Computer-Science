@@ -7,9 +7,10 @@ for i in range(4):
         a=random.randrange(0,3)
         if a == 0:
             num+=1
-        if num>=2:
+        if num>1 and a==0:
             continue
-        l.append(a)
+        else:
+            l.append(a)
     L.append(l)
 
 for i in range(len(L)):
@@ -43,4 +44,26 @@ for r in range(4):
     for c in range(3):
         if L[r][c]==0:
             print(r,c)
+'''
+
+#AI Solution (More Efficient)
+'''
+import random
+L=[]
+for i in range(4):
+    l=[]
+    has_zero = False # Use a boolean for "at most one"
+    while len(l) < 3:
+        a = random.randrange(0, 3)
+        
+        if a == 0:
+            if not has_zero:
+                l.append(a)
+                has_zero = True
+            else:
+                # We already have a zero, so we just ignore this roll
+                continue 
+        else:
+            l.append(a)
+    L.append(l)
 '''
