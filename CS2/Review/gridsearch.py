@@ -9,8 +9,7 @@ for i in range(4):
             num+=1
         if num>1 and a==0:
             continue
-        else:
-            l.append(a)
+        l.append(a)
     L.append(l)
 
 for i in range(len(L)):
@@ -28,12 +27,13 @@ for i in range(len(L)):
 L=[]
 for r in range(4):
     t=[]
-    while True:
-        num=random.randrange(3)
-        if num==0 and 0 in t:
-            continue
-        t.append(num)
-        break  
+    for c in range(3):
+        while True:
+            num=random.randrange(3)
+            if num==0 and 0 in t:
+                continue
+            t.append(num)
+            break  
     L.append(t)
 for r in range(4):
     for c in range(3):
