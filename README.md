@@ -43,6 +43,7 @@
 
 * **Teacher's Website:** [Mister Ark CS2](http://arkiletian.com/cs2/)
 * **pyFLTK Documentation:** [Official Website](https://pyfltk.sourceforge.io/)
+* **FLTK Programming Manual (Please download HTML and index file from Code/CS2/Textbook)**
 
 ---
 
