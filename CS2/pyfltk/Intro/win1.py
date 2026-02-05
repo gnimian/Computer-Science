@@ -14,11 +14,12 @@ win.end()
 
 but.label("OK")
 print(but.label())
+but.color(FL_RED) #present colrs are described in enumurations
 #but.color(93)#main page -> drawing things -> colors
 
 #Files -> functions -> R
-c = fl_rgb_color(148, 225, 179)
-but.color(c)
+#c = fl_rgb_color(148, 225, 179)
+#but.color(c)
 
 win.show()
 Fl.run() #start event loop
