@@ -42,7 +42,7 @@ for r in range(4):
 print()
 for r in range(4):
     for c in range(3):
-        if L[r][c]==0:
+        if L[r][c]==0:file:///opt/fltk/html
             print(r,c)
 '''
 
