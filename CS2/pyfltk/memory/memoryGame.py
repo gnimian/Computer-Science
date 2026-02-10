@@ -21,22 +21,24 @@ def but_cb(wid):
     print("button callback")
 
 #resize picture
-Images=["dococ.png","electro.png","goblin.png","hulk.png","ironman.png","lizard.png","mysterio.png","rhino2.png","sandman.png","spiderman.png","venom.png","wolverine.png"]
 win = Fl_Window(1200,800)
 win.begin()
-pic = None
 #make buttons into grid
 LB=[]
-row=[]
-col=[]
+twod=[]
 coun=[]
-#making a grid with 2D lists
 
 #making list of pictures
 fn=os.listdir('marvel_pics')
 fn = fn + fn
 random.shuffle(fn)
-print(fn)
+#making a grid with 2D lists
+for i in range(4):
+    row = []
+    for j in range(6):
+        row.append(fn[i*6+j])
+    twod.append(row)
+print(twod)
 
 for r in range(4):
     for c in range(6): 

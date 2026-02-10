@@ -15,3 +15,5 @@ print(fn)
 fn = fn + fn
 random.shuffle(fn)
 '''
+
+#.index() tracks which item you click
