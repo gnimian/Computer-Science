@@ -4,6 +4,7 @@ from fltk import *
 from PIL import Image
 import io
 import random
+import os
 #deactive images widget.deactivate()
 
 def img_resize(fname,height):
@@ -17,7 +18,7 @@ def img_resize(fname,height):
     return Fl_PNG_Image(None, mem.getbuffer(), siz)
 
 def but_cb(wid):
-    
+    print("button callback")
 
 #resize picture
 Images=["dococ.png","electro.png","goblin.png","hulk.png","ironman.png","lizard.png","mysterio.png","rhino2.png","sandman.png","spiderman.png","venom.png","wolverine.png"]
@@ -30,18 +31,16 @@ row=[]
 col=[]
 coun=[]
 #making a grid with 2D lists
-for i in range(4):
-    for j in range(6):
-        while True:
-                a = random.choice(Images)
-                pic = img_resize(a, 200)
-                if coun.count(a) < 2:
-                    coun.append(a)
-                    break
+
+#making list of pictures
+fn=os.listdir('marvel_pics')
+fn = fn + fn
+random.shuffle(fn)
+print(fn)
 
 for r in range(4):
     for c in range(6): 
-        pic = img_resize("marvel.png",200)
+        pic = img_resize("marvel_pics/marvel.png",200)
         but = Fl_Button(c*200, r*200, 200, 200)
         but.image(pic)
         LB.append(but)
