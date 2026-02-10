@@ -11,6 +11,7 @@ def pull_cb(wid):
         B[x].redraw()
     #win.redraw()
     print(shown,len(shown))
+    #if shown[0]==shown[1]==shown[2]: 
     '''
     if shown[0]==shown[1] and shown[1]==shown[2]:
         fl_message('You Win!')
