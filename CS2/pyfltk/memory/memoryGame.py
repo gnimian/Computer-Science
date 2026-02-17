@@ -17,36 +17,45 @@ def img_resize(fname,height):
     siz = mem.tell()
     return Fl_PNG_Image(None, mem.getbuffer(), siz)
 
-def but_cb(wid):
-    print("button callback")
+def but_cb(wid,data):
+    storage=[]
+    count=0
+    r,c=data
+    if count <2:
+        wid.image(twod[r][c])
+        storage.append(fn[r],[c])
+        print()
+    
 
-#resize picture
 win = Fl_Window(1200,800)
 win.begin()
-#make buttons into grid
+
 LB=[]
 twod=[]
 coun=[]
 
 #making list of pictures
-fn=os.listdir('marvel_pics')
+#fn=os.listdir('marvel_pics')
+fn = ["dococ.png","electro.png","goblin.png","hulk.png","ironman.png","lizard.png","mysterio.png","rhino2.png","sandman.png","spiderman.png","venom.png","wolverine.png"]
 fn = fn + fn
 random.shuffle(fn)
+I=[Fl_PNG_Image(f).copy(200,200)for f in fn]
+print(I)
 #making a grid with 2D lists
 for i in range(4):
     row = []
     for j in range(6):
-        row.append(fn[i*6+j])
+        row.append(I[i*6+j])
     twod.append(row)
 print(twod)
 
 for r in range(4):
     for c in range(6): 
-        pic = img_resize("marvel_pics/marvel.png",200)
+        pic = img_resize("marvel.png",200)
         but = Fl_Button(c*200, r*200, 200, 200)
         but.image(pic)
         LB.append(but)
-        LB[-1].callback(but_cb)
+        LB[-1].callback(but_cb,(r,c))
 
 win.end()
 
