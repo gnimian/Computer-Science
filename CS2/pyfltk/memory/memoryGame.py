@@ -16,15 +16,14 @@ def img_resize(fname,height):
     img.save(mem, format="PNG")
     siz = mem.tell()
     return Fl_PNG_Image(None, mem.getbuffer(), siz)
-
+storage = []
 def but_cb(wid,data):
-    storage=[]
     count=0
     r,c=data
     if count <2:
         wid.image(twod[r][c])
-        storage.append(fn[r],[c])
-        print()
+        storage.append(name[r][c])
+        print(storage)
     
 
 win = Fl_Window(1200,800)
@@ -33,7 +32,7 @@ win.begin()
 LB=[]
 twod=[]
 coun=[]
-
+name = []
 #making list of pictures
 #fn=os.listdir('marvel_pics')
 fn = ["dococ.png","electro.png","goblin.png","hulk.png","ironman.png","lizard.png","mysterio.png","rhino2.png","sandman.png","spiderman.png","venom.png","wolverine.png"]
@@ -47,7 +46,12 @@ for i in range(4):
     for j in range(6):
         row.append(I[i*6+j])
     twod.append(row)
-print(twod)
+
+for i in range(4):
+    twooo = []
+    for j in range(6):
+        twooo.append(fn[i*6+j])
+    name.append(twooo)
 
 for r in range(4):
     for c in range(6): 
