@@ -11,9 +11,10 @@ import random
 #resizes images, copy and paseted from Mr.Ark's website
 def img_resize(fname,height):
     img = Image.open(fname)
-    w,h = img.size
-    width = int(height*w/h)
-    img = img.resize((height, width), Image.BICUBIC)
+    #w,h = img.size
+    #width = int(height*w/h) 
+    # #this can be used to resize the image while keeping the aspect ratio, but I just want to make them all square for simplicity
+    img = img.resize((height, height), Image.BICUBIC)
     mem = io.BytesIO()
     img.save(mem, format="PNG")
     siz = mem.tell()
@@ -72,8 +73,8 @@ win.begin()
 fn = ["dococ.png","electro.png","goblin.png","hulk.png","ironman.png","lizard.png","mysterio.png","rhino2.png","sandman.png","spiderman.png","venom.png","wolverine.png"]
 fn = fn + fn
 random.shuffle(fn)
-I=[Fl_PNG_Image(f).copy(200,200)for f in fn]
-
+#I=[Fl_PNG_Image(f).copy(200,200)for f in fn]
+I=[img_resize(f, 200) for f in fn]
 
 #making a grid of images with 2D lists. Subsituting images for marvel.png when calling function
 image2D=[]
