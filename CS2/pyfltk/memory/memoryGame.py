@@ -1,5 +1,5 @@
 #Project Started 2/9/26
-#Project Finished 2/18/26 (still refining)
+#Project Finished 2/20/26 (still refining)
 #Memory Game. Enjoy!!!!
 
 from fltk import *
@@ -12,8 +12,8 @@ import random
 def img_resize(fname,height):
     img = Image.open(fname)
     #w,h = img.size
-    #width = int(height*w/h) 
-    # #this can be used to resize the image while keeping the aspect ratio, but I just want to make them all square for simplicity
+    #width = int(height*w/h)
+    #this can be used to resize the image while keeping the aspect ratio, but I just want to make them all square for simplicity
     img = img.resize((height, height), Image.BICUBIC)
     mem = io.BytesIO()
     img.save(mem, format="PNG")
@@ -21,31 +21,31 @@ def img_resize(fname,height):
     return Fl_PNG_Image(None, mem.getbuffer(), siz)
 
 nameCompare = []
-butRepeat = []
 butCompare=[]
 count=0
 tries = 0
 back_image = img_resize("marvel.png",200)
 
 def but_cb(wid,data):
-    global count,nameCompare,butCompare,butRepeat,tries
+    global count,nameCompare,butCompare,tries
     r,c = data
     #make button back to marvel if not match
     if len(nameCompare) == 2 and nameCompare[0] != nameCompare[1]:
-            butCompare[0].image(back_image)
-            butCompare[1].image(back_image)
-            butCompare[0].redraw() #MUST NEED
-            butCompare[1].redraw()
-            butCompare.clear()
-            nameCompare.clear()
+        if wid == butCompare[0] or wid == butCompare[1]:
+            return
+        butCompare[0].image(back_image)
+        butCompare[1].image(back_image)
+        butCompare[0].redraw() #MUST NEED
+        butCompare[1].redraw()
+        butCompare.clear()
+        nameCompare.clear()
 
-    if len(butRepeat)==1 and butRepeat[0] == wid:
+    if len(butCompare)==1 and butCompare[0] == wid:
         return
-    
+
     wid.image(image2D[r][c])
     wid.redraw()
     butCompare.append(wid)
-    butRepeat.append(wid)
     nameCompare.append(name2D[r][c])
 
     #deactivate buttons if match and check if win
@@ -60,15 +60,14 @@ def but_cb(wid,data):
             nameCompare.clear()
             count+=1
         if count == 12:
-            fl_message(f'you win! You got all matches in {tries} tries!')
+            fl_message(f'You win! You got it in {tries} tries!')
             win.hide()
-        butRepeat.clear()
 
 
 win = Fl_Window(1200,800)
 win.begin()
 
-#fn=os.listdir('marvel_pics'): this can be used to import all the images in the folder, but I just list then out for simplicity.
+#fn=os.listdir('marvel_pics'): this can be used to import all the images in the folder, but I just list them out.
 #importing images and making into images for fltk
 fn = ["dococ.png","electro.png","goblin.png","hulk.png","ironman.png","lizard.png","mysterio.png","rhino2.png","sandman.png","spiderman.png","venom.png","wolverine.png"]
 fn = fn + fn
@@ -94,10 +93,10 @@ for i in range(4):
     name2D.append(temp)
 
 
-#making buttons 
-butMaker=[]    
+#making buttons
+butMaker=[]
 for row in range(4):
-    for column in range(6): 
+    for column in range(6):
         marvelPic = img_resize("marvel.png",200)
         but = Fl_Button(column*200, row*200, 200, 200)
         but.image(marvelPic)
@@ -105,6 +104,5 @@ for row in range(4):
         butMaker[-1].callback(but_cb,(row,column))
 
 win.end()
-win.resizable(win) #makes window resizable 
 win.show()
 Fl.run()
