@@ -16,7 +16,7 @@ for x in range(3):
     bl[-1].callback(but_cb)
 
 p.end()
-p.resizable(bl[0]) # set resizable arg as either 1)widget 2)Group itself 3)None
+p.resizable(p) #set resizable arg as either 1)widget 2)Group itself 3)None
 
 p2= Fl_Pack(0, 300,400, 100)
 p2.type(Fl_Pack.VERTICAL)
@@ -26,9 +26,10 @@ b1=Fl_Button(0,0, 0, p2.h()//2,'A')
 b2=Fl_Button(0,0, 0, p2.h()//2,'B')
 
 p2.end()
-p2.resizable(b1)
+p2.resizable(p2)
 
 win.end()
-win.resizable(p)
+win.resizable(win)
 win.show()
 Fl.run()
+
