@@ -1,35 +1,50 @@
 from fltk import *
-#packs
+#Apparantely Fl_Pack to resize button is completely broken in 1.4, so we are going to switch to Fl_Group 
+#each group can only have one resizable widget
+#A window is also a group
+#Groups are:    g      g2      win
+#Resizable:   bl[0]    b1       g
 
 def but_cb(wid):
-    wid.color(FL_GREEN)
+    if wid.color() == FL_RED:
+        wid.color(FL_GREEN)
+    else:
+        wid.color(FL_RED)
 
-win = Fl_Window(0,0,400, 400, "Fl_Pack")
+win = Fl_Window(0,0,400, 400, "Fl_Group")
 win.begin()
-p=Fl_Pack(0,0, 400, 300)
-p.type(Fl_Pack.HORIZONTAL)
-p.begin()
+g=Fl_Group(0,0, 400, 300)
+g.begin()
 
 bl=[]
+width = g.w()//3
 for x in range(3):
-    bl.append(Fl_Button(0, 0, p.w()//3 , 0, str(x+1)))
+    bl.append(Fl_Button(width*x, 0, width, 300, str(x)))
     bl[-1].callback(but_cb)
 
-p.end()
-p.resizable(p) #set resizable arg as either 1)widget 2)Group itself 3)None
+g.end()
+#bl[0] is the first button 
+g.resizable(g) #set resizable arg as either 1)widget 2)Group itself 3)None
+#g.resizable(None)
+#g.resizable(bl[0])
 
-p2= Fl_Pack(0, 300,400, 100)
-p2.type(Fl_Pack.VERTICAL)
-p2.begin()
+#color resizeable widget 
+#bl[0].color(FL_RED)
 
-b1=Fl_Button(0,0, 0, p2.h()//2,'A')
-b2=Fl_Button(0,0, 0, p2.h()//2,'B')
+g2= Fl_Group(0, 300, 400, 100)
+g2.begin()
 
-p2.end()
-p2.resizable(p2)
+b1=Fl_Button(0,300, 400, 100//2,'b1')
+b2=Fl_Button(0,350, 400, 100//2,'b2')
+b1.callback(but_cb)
+b2.callback(but_cb)
 
-win.end()
-win.resizable(win)
+g2.end()
+g2.resizable(g2)
+#b1.color(FL_RED)
+
+win.end() 
+win.resizable(g)
 win.show()
 Fl.run()
 

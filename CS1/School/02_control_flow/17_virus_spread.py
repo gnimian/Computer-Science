@@ -19,3 +19,4 @@ while tot< 8e9:
     infect=infect*2
     day=day+1
 print(f'the total number of days {day-1}')
+'''
