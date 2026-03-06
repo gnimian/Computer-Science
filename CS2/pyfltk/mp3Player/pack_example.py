@@ -42,9 +42,9 @@ b2.callback(but_cb)
 g2.end()
 g2.resizable(g2)
 #b1.color(FL_RED)
-
-win.end() 
 win.resizable(g)
+win.end() 
+
 win.show()
 Fl.run()
 
